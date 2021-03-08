@@ -1,0 +1,111 @@
+  {
+    "recipes": [
+      {
+        "id": 0,
+        "title": "Neapolitana",
+        "img": "https://www.tasteaway.pl/wp-content/uploads/2020/06/103281465_900138937161751_2767208766100776015_n.jpg",
+        "ingredients": [
+          {
+            "name": "flour",
+            "quantity": 800,
+            "unit": "g"
+          },
+          {
+            "name": "water",
+            "quantity": 500,
+            "unit": "ml"
+          },
+          {
+            "name": "salt",
+            "quantity": 1,
+            "unit": "tablespoon"
+          },
+          {
+            "name": "dry yeast",
+            "quantity": 1,
+            "unit": "package"
+          }
+        ],
+        "notes": "The best pizza"
+      },
+      {
+        "id": 1,
+        "title": "Strawberry Milkshake",
+        "img": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_1460,h_971/k%2Farchive%2Ffbb0514eef58c8af45e01c0a0212b4f17b0fa23d",
+        "ingredients": [
+          {
+            "name": "strawberries",
+            "quantity": 8,
+            "unit": "ounce"
+          },
+          {
+            "name": "sugar",
+            "quantity": 2,
+            "unit": "tablespoon"
+          },
+          {
+            "name": "vanilla",
+            "quantity": 1,
+            "unit": "teaspoon"
+          }
+        ],
+        "notes": "Really refreshing!"
+      },
+      {
+        "id": 2,
+        "title": "Bread",
+        "img": "https://www.seriouseats.com/2011/06/20200419-no-knead-bread-vicky-wasik2.jpg",
+        "ingredients": [
+          {
+            "name": "flour",
+            "quantity": 800,
+            "unit": "g"
+          },
+          {
+            "name": "water",
+            "quantity": 400,
+            "unit": "ml"
+          },
+          {
+            "name": "salt",
+            "quantity": 2,
+            "unit": "tablespoon"
+          },
+          {
+            "name": "dry yeast",
+            "quantity": 0.25,
+            "unit": "package"
+          }
+        ],
+        "notes": "Tastes amazing..."
+      },
+      {
+        "id": 3,
+        "title": "Shakshouka",
+        "img": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/3388347B-D8A3-4933-BD96-8E65A06FFDE6/Derivates/3DC1BD03-9865-4A3B-9229-098469FC6674.jpg",
+        "ingredients": [
+          {
+            "name": "tomatoes",
+            "quantity": 1,
+            "unit": "package"
+          },
+          {
+            "name": "eggs",
+            "quantity": 4,
+            "unit": "items"
+          },
+          {
+            "name": "salt",
+            "quantity": 0.5,
+            "unit": "tablespoon"
+          },
+          {
+            "name": "pepper",
+            "quantity": 0.5,
+            "unit": "items"
+          }
+        ],
+        "notes": "Tastes amazing..."
+      }
+    ]
+  }

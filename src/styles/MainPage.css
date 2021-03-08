@@ -1,0 +1,10 @@
+.title {
+    position: relative;
+    top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: hsl(205, 89%, 70%);
+}
+.recipes-list {
+    margin-top: 80px;
+}

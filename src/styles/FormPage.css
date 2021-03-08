@@ -1,0 +1,54 @@
+.form-container {
+    width: 90vw;
+    background-color: white;
+    height: 90%;
+    margin: 0 auto;
+    border-radius: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    top: 30px;
+    display: grid;
+}
+
+form h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: hsl(205, 89%, 70%);
+}
+
+
+form input {
+    background: hsl(210, 36%, 96%);
+    border-color: transparent;
+    border-radius: 0.25rem;
+    padding: 0.35rem 0.6rem;
+    width: 250px;
+}
+
+.form-control {
+    margin: 0.5rem 0;
+}
+form label {
+    margin-right: 10px;
+}
+
+.btn-ingredient {
+    text-transform: uppercase;
+    background: transparent;
+    color: #222;
+    padding: 0.275rem 0.55rem;
+    letter-spacing: 0.1rem;
+    transition: all 0.3s linear;;
+    font-size: 0.575rem;
+    border: 2px solid #222;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 0.25rem;
+    margin: 30px 10px;
+    font-size: 10px;
+}
+.btn-ingredient:hover {
+    color: #fff;
+    background: hsl(205, 89%, 70%);
+}

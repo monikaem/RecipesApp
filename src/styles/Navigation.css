@@ -1,0 +1,104 @@
+.btn {
+    text-transform: uppercase;
+    background: transparent;
+    color: #222;
+    padding: 0.375rem 0.75rem;
+    letter-spacing: 0.1rem;
+    transition: all 0.3s linear;;
+    font-size: 0.875rem;
+    border: 2px solid #222;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 0.25rem;
+    margin: 30px 10px;
+}
+.btn:hover {
+    color: #fff;
+    background: hsl(205, 89%, 70%);
+}
+
+.icon-btn {
+    position: relative;
+    left: 5px;
+    top: 2px;
+}
+.nav {
+    width: 25vw;
+    height: 10vh;
+    margin: 0 auto;
+}
+.navlink-container {
+    display: flex;
+}
+.underline {
+    height: 0.25rem;
+    width: 10rem;
+    background: hsl(205, 89%, 70%);
+    margin-left: auto;
+    margin-right: auto;
+}
+.items-container {
+    width: 90vw;
+    background-color: white;
+    height: 100vh;
+    margin: 0 auto;
+    border-radius: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    top: 30px;
+}
+
+@media screen and (max-width: 500px) {
+    .btn {
+        text-transform: uppercase;
+        background: transparent;
+        color: #222;
+        padding: 0.375rem 0.75rem;
+        letter-spacing: 0.1rem;
+        transition: all 0.3s linear;;
+        font-size: 0.875rem;
+        border: 2px solid #222;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 0.25rem;
+        margin: 30px 10px;
+        font-size: 10px;
+    }
+    .btn:hover {
+        color: #fff;
+        background: hsl(205, 89%, 70%);
+    }
+
+    .icon-btn {
+        position: relative;
+        left: 5px;
+        top: 2px;
+    }
+    .nav {
+        width: 25vw;
+        height: 10vh;
+        margin: 0 auto;
+    }
+    .navlink-container {
+        display: flex;
+    }
+    .underline {
+        height: 0.25rem;
+        width: 10rem;
+        background: hsl(205, 89%, 70%);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .items-container {
+        width: 90vw;
+        background-color: white;
+        height: 100vh;
+        margin: 0 auto;
+        border-radius: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+        top: 30px;
+    }
+}
