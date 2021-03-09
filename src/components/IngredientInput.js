@@ -16,6 +16,7 @@ const IngredientInput = ({name, quantity, unit,id}) => {
                     value={name}
                     onChange={handleChange}
                     id='name'
+                    placeholder='3-30 letters'
                 />
             </div>
             <div className='form-control'>
@@ -41,6 +42,7 @@ const IngredientInput = ({name, quantity, unit,id}) => {
                     value={unit}
                     onChange={handleChange}
                     id='unit'
+                    placeholder='kg, ml, tablespoon, teaspoon...'
                 />
             </div>
         </>

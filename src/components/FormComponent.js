@@ -1,4 +1,4 @@
-import {messages} from "../data/errorMessages";
+import {errorMessages} from "../data/errorMessages";
 import IngredientInput from "./IngredientInput";
 import {Link} from "react-router-dom";
 import Alert from "./Alert";
@@ -24,7 +24,7 @@ const FormComponent = () => {
                             placeholder='3-30 letters'
                         />
                     </div>
-                    {errors.title && <p className='error-input'>{messages.title_incorrect}</p>}
+                    {errors.title && <p className='error-input'>{errorMessages.title_incorrect}</p>}
                     <div className='form-control'>
                         <label htmlFor='img'>Image URL: </label>
                         <input
@@ -36,7 +36,7 @@ const FormComponent = () => {
                             placeholder='Paste the image URL here'
                         />
                     </div>
-                    {errors.img && <p className='error-input'>{messages.img_incorrect}</p>}
+                    {errors.img && <p className='error-input'>{errorMessages.img_incorrect}</p>}
                     <div className='form-control'>
                         <label htmlFor='notes'>Your notes: </label>
                         <input
@@ -54,7 +54,7 @@ const FormComponent = () => {
                                 <IngredientInput {...ingredient} id={index} key={index}/>
                             )
                         })}
-                        {errors.ingredients && <p className='error-input'>{messages.ingredients_incorrect}</p>}
+                        {errors.ingredients && <p className='error-input'>{errorMessages.ingredients_incorrect}</p>}
                         <button className='btn-ingredient' onClick={handleAddNewIngredient}>Add Ingredient</button>
                     </div>
 

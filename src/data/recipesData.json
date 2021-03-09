@@ -104,6 +104,62 @@
         "unit": "items"
       }
     ],
-    "notes": "Tastes amazing..."
+    "notes": "Yummy"
+  },
+  {
+    "id": 4,
+    "title": "Mojito",
+    "img": "https://cdn30.beszamel.smcloud.net/t/thumbs/660/441/1/user_photos/mojito-jak-przygotowac-tego-drinka.jpg",
+    "ingredients": [
+      {
+        "name": "mint",
+        "quantity": 5,
+        "unit": "leaves"
+      },
+      {
+        "name": "fresh lime juice",
+        "quantity": 1,
+        "unit": "ounce"
+      },
+      {
+        "name": "ice",
+        "quantity": 4,
+        "unit": "cubes"
+      },
+      {
+        "name": "lime",
+        "quantity": 5,
+        "unit": "slices"
+      }
+    ],
+    "notes": "My favourite coctail"
+  },
+  {
+    "id": 5,
+    "title": "Pina Colada",
+    "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/20191115-virgin-pina-colada-delish-ehg-4375-1585599229.jpg?crop=1.00xw:0.716xh;0,0.0668xh&resize=980:*",
+    "ingredients": [
+      {
+        "name": "white rum",
+        "quantity": 6,
+        "unit": "ounces"
+      },
+      {
+        "name": "cream of coconut",
+        "quantity": 6,
+        "unit": "ounces"
+      },
+      {
+        "name": "pineapple juice",
+        "quantity": 6,
+        "unit": "ounces"
+      },
+      {
+        "name": "ice",
+        "quantity": 4,
+        "unit": "cubes"
+      }
+    ],
+    "notes": "Absolutely delicious!!"
   }
 ]

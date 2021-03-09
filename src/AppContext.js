@@ -4,7 +4,7 @@ import React, {createContext, useContext, useEffect, useState} from 'react';
 const AppContext = createContext();
 
 export const AppProvider = ({children}) => {
-    const URL = 'https://monikatest1.free.beeceptor.com/recipes';
+    const URL = 'https://my-json-server.typicode.com/monikaem/json_mock/recipes';
     const [recipes, setRecipes] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isEditingActive, setIsEditingActive] = useState(false);
@@ -76,7 +76,6 @@ export const AppProvider = ({children}) => {
             }
         } else {
             try {
-                console.log(recipe.id)
                 return fetch(URL + '/' + recipe.id, {
                     method: 'PUT',
                     headers: {'Content-Type': 'application/json'},
@@ -122,6 +121,7 @@ export const AppProvider = ({children}) => {
         setIsEditingActive(false);
         setEditID(null);
         setNewRecipe({title: '', img: '', ingredients: [], notes: ''})
+        setErrors({title: false, img: false, ingredients: false})
     }
 
     const handleAddNewIngredient = (e) => {
