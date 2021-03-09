@@ -5,6 +5,7 @@
     border: 0.25rem solid hsl(205, 89%, 70%);
     border-radius: 0.25rem;
     display: block;
+    box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.45);
 }
 .recipes-section-center {
     width: 90vw;

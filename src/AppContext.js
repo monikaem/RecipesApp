@@ -3,15 +3,16 @@ import React, {createContext, useContext, useEffect, useState} from 'react';
 const AppContext = createContext();
 
 export const AppProvider = ({children}) => {
+    const URL = 'https://moni2.free.beeceptor.com/recipes';
     const [recipes, setRecipes] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isEditingActive, setIsEditingActive] = useState(false);
     const [editID, setEditID] = useState(null);
     const [newRecipe, setNewRecipe] = useState({title: '', img: '', ingredients: [], notes: ''});
-    const [alert, setAlert] = useState({ show: false, msg: '', type: '' });
+    const [alert, setAlert] = useState({show: false, msg: '', type: ''});
     const [errors, setErrors] = useState({title: false, img: false})
 
-    const formValidation = () => {
+    const validateForm = () => {
         const {title, img} = newRecipe;
         let titleValid = false;
         let imgValid = false;
@@ -25,18 +26,18 @@ export const AppProvider = ({children}) => {
         if (titleValid && imgValid) {
             correct = true;
         }
-            return ({
-                correct,
-                titleValid,
-                imgValid,
-            })
+        return ({
+            correct,
+            titleValid,
+            imgValid,
+        })
     }
 
 
     const fetchRecipes = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch('https://monikaa4.free.beeceptor.com/recipes');
+            const response = await fetch(URL);
             const recipesData = await response.json();
             setRecipes(recipesData);
             setIsLoading(false);
@@ -47,15 +48,26 @@ export const AppProvider = ({children}) => {
     }
 
     const saveRecipe = (recipe) => {
-        console.log('recipe to save: ' + recipe);
-        try {
-            return fetch('https://monikaa4.free.beeceptor.com/recipes',{
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({recipe})
-            }).then(resp => resp.json());
-        } catch (error) {
-            console.log(error);
+        if (!isEditingActive) {
+            try {
+                return fetch(URL, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({recipe})
+                }).then(resp => resp.json());
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            try {
+                return fetch(URL + '/' + recipe.id, {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({recipe})
+                }).then(resp => resp.json());
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
@@ -64,25 +76,30 @@ export const AppProvider = ({children}) => {
     }, [])
 
     const showAlert = (show = false, type = '', msg = '') => {
-        setAlert({ show, type, msg });
+        setAlert({show, type, msg});
     };
+
     const handleSubmit = (e) => {
+        console.log(e.target)
         e.preventDefault();
-        const validation = formValidation();
+        const validation = validateForm();
+        console.log('validation.correct ' + validation.correct)
         if (validation.correct) {
             saveRecipe(newRecipe);
             setNewRecipe({title: '', img: '', ingredients: [], notes: ''})
-            showAlert(true, 'success', 'item added to the list');
+            showAlert(true, 'success', `item successfully ${isEditingActive ? 'updated' : 'added'}`);
             setErrors({title: false, img: false})
         } else {
             showAlert(true, 'danger', 'Check the form again');
             setErrors({title: !validation.titleValid, img: !validation.imgValid})
-            console.log(validation)
         }
     }
+
     const activateEditing = (id) => {
         setIsEditingActive(true);
         setEditID(id);
+        const editedRecipe = recipes[id]
+        setNewRecipe(editedRecipe);
     }
 
     const deactivateEditing = () => {
@@ -99,20 +116,34 @@ export const AppProvider = ({children}) => {
     }
 
     const handleChange = (e) => {
-        if (["name", "quantity", "unit"].includes(e.target.className) ) {
+        if (["name", "quantity", "unit"].includes(e.target.className)) {
             let ingredients = [...newRecipe.ingredients]
             ingredients[e.target.dataset.id][e.target.className] = e.target.value
             setNewRecipe({...newRecipe, ingredients})
         } else {
             const name = e.target.name;
             const value = e.target.value;
-            setNewRecipe({...newRecipe, [name]: value })
+            setNewRecipe({...newRecipe, [name]: value})
         }
     }
 
 
     return (
-        <AppContext.Provider value={{isLoading, recipes, handleSubmit, activateEditing, isEditingActive, deactivateEditing, newRecipe,handleAddNewIngredient, handleChange, editID, alert, showAlert, errors}}>
+        <AppContext.Provider value={{
+            isLoading,
+            recipes,
+            handleSubmit,
+            activateEditing,
+            isEditingActive,
+            deactivateEditing,
+            newRecipe,
+            handleAddNewIngredient,
+            handleChange,
+            editID,
+            alert,
+            showAlert,
+            errors
+        }}>
             {children}
         </AppContext.Provider>
     )

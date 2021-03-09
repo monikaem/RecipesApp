@@ -1,10 +1,14 @@
 import {useGlobalContext} from "../AppContext";
 import IngredientInput from "../components/IngredientInput";
 import {Link} from "react-router-dom";
+import Alert from "../components/Alert";
 
 const EditPage = () => {
-    const {handleSubmit, isEditingActive, deactivateEditing, newRecipe, handleAddNewIngredient, handleChange, editID, recipes} = useGlobalContext();
-
+    const {handleSubmit, deactivateEditing, handleAddNewIngredient, handleChange, newRecipe, showAlert, alert, errors} = useGlobalContext();
+    const messages = {
+        title_incorrect: 'Empty dish name value!',
+        img_incorrect: 'Check the URl of the image!',
+    }
     return (
         <>
             <div className='form-container'>
@@ -15,32 +19,34 @@ const EditPage = () => {
                         <input
                             type='text'
                             name='title'
-                            value={recipes[editID].title}
+                            value={newRecipe.title}
                             onChange={handleChange} id='title'
                         />
+                        {errors.title && <p className='error-input'>{messages.title_incorrect}</p>}
                     </div>
                     <div className='form-control'>
                         <label htmlFor='img'>Image URL: </label>
                         <input
                             type='text'
                             name='img'
-                            value={recipes[editID].img}
+                            value={newRecipe.img}
                             onChange={handleChange}
                             id='img'
                         />
+                        {errors.img && <p className='error-input'>{messages.img_incorrect}</p>}
                     </div>
                     <div className='form-control'>
                         <label htmlFor='notes'>Your notes: </label>
                         <input
                             type='text'
-                            name='notes' v
-                            alue={recipes[editID].notes}
+                            name='notes'
+                            value={newRecipe.notes}
                             onChange={handleChange}
                             id='notes'
                         />
                     </div>
                     <div className='form-ingredients-container'>
-                        {recipes[editID].ingredients.map((ingredient, index) => {
+                        {newRecipe.ingredients.map((ingredient, index) => {
                             return (
                                 <IngredientInput {...ingredient} id={index} key={index}/>
                             )
@@ -51,6 +57,7 @@ const EditPage = () => {
                     <Link to='/'><button className='btn' onClick={deactivateEditing}>Cancel</button></Link>
                     <button type='submit' className='btn' onClick={handleSubmit}>Edit Recipe</button>
                 </form>
+                {alert.show && <Alert {...alert} removeAlert={showAlert} newRecipe={newRecipe} />}
             </div>
         </>
     )

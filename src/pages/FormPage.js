@@ -7,7 +7,7 @@ import Alert from "../components/Alert";
 const FormPage = () => {
     const {handleSubmit, isEditingActive, deactivateEditing, newRecipe, handleAddNewIngredient, handleChange, alert, showAlert, errors} = useGlobalContext();
     const messages = {
-        title_incorrect: 'Empty dish name value!!',
+        title_incorrect: 'Empty dish name value!',
         img_incorrect: 'Check the URl of the image!',
     }
     return (
@@ -23,6 +23,7 @@ const FormPage = () => {
                             value={newRecipe.title}
                             onChange={handleChange}
                             id='title'
+                            placeholder='3-30 letters'
                         />
                     </div>
                     {errors.title && <p className='error-input'>{messages.title_incorrect}</p>}
@@ -34,6 +35,7 @@ const FormPage = () => {
                             value={newRecipe.img}
                             onChange={handleChange}
                             id='img'
+                            placeholder='Paste the image URL here'
                         />
                     </div>
                     {errors.img && <p className='error-input'>{messages.img_incorrect}</p>}
@@ -44,7 +46,9 @@ const FormPage = () => {
                             name='notes'
                             value={newRecipe.notes}
                             onChange={handleChange}
-                            id='notes'/>
+                            id='notes'
+                            placeholder='Optional'
+                        />
                     </div>
                     <div className='form-ingredients-container'>
                         {newRecipe.ingredients.map((ingredient, index) => {
@@ -56,7 +60,7 @@ const FormPage = () => {
                     </div>
 
                     <Link to='/'><button className='btn' onClick={deactivateEditing}>Cancel</button></Link>
-                    <button type='submit' className='btn' onClick={handleSubmit}>Add Recipe</button>
+                    <button type='submit' className='btn' onClick={handleSubmit}>Save Recipe</button>
                 </form>
                 {alert.show && <Alert {...alert} removeAlert={showAlert} newRecipe={newRecipe} />}
             </div>
