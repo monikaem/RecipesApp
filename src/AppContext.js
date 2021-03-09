@@ -4,7 +4,7 @@ import React, {createContext, useContext, useEffect, useState} from 'react';
 const AppContext = createContext();
 
 export const AppProvider = ({children}) => {
-    const URL = 'https://moni3.free.beeceptor.com/recipes';
+    const URL = 'https://monikatest1.free.beeceptor.com/recipes';
     const [recipes, setRecipes] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isEditingActive, setIsEditingActive] = useState(false);
@@ -18,7 +18,6 @@ export const AppProvider = ({children}) => {
         let titleValid = true; // true = OK (no error message)
         let imgValid = true;
         const ingredientsArrayErrors = [];
-        let correct = true;
             if (title.length < 3 || title.length > 30) {
                 titleValid = false;
             }
@@ -42,7 +41,7 @@ export const AppProvider = ({children}) => {
                     }
                 })
             }
-            correct = (titleValid && imgValid && !ingredientsArrayErrors.length);
+            let correct = (titleValid && imgValid && !ingredientsArrayErrors.length);
             return ({
                 correct,
                 titleValid,
