@@ -3,13 +3,11 @@ import {useGlobalContext} from "../AppContext";
 import {Link} from "react-router-dom";
 import IngredientInput from "../components/IngredientInput";
 import Alert from "../components/Alert";
+import {messages} from "../data/errorMessages";
 
 const FormPage = () => {
-    const {handleSubmit, isEditingActive, deactivateEditing, newRecipe, handleAddNewIngredient, handleChange, alert, showAlert, errors} = useGlobalContext();
-    const messages = {
-        title_incorrect: 'Empty dish name value!',
-        img_incorrect: 'Check the URl of the image!',
-    }
+    const {handleSubmit, deactivateEditing, newRecipe, handleAddNewIngredient, handleChange, alert, showAlert, errors} = useGlobalContext();
+
     return (
         <>
             <div className='form-container'>
@@ -56,6 +54,7 @@ const FormPage = () => {
                             <IngredientInput {...ingredient} id={index} key={index}/>
                             )
                         })}
+                        {errors.ingredients && <p className='error-input'>{messages.ingredients_incorrect}</p>}
                         <button className='btn-ingredient' onClick={handleAddNewIngredient}>Add Ingredient</button>
                     </div>
 

@@ -1,38 +1,55 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 
+
 const AppContext = createContext();
 
 export const AppProvider = ({children}) => {
-    const URL = 'https://moni2.free.beeceptor.com/recipes';
+    const URL = 'https://moni3.free.beeceptor.com/recipes';
     const [recipes, setRecipes] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isEditingActive, setIsEditingActive] = useState(false);
     const [editID, setEditID] = useState(null);
     const [newRecipe, setNewRecipe] = useState({title: '', img: '', ingredients: [], notes: ''});
     const [alert, setAlert] = useState({show: false, msg: '', type: ''});
-    const [errors, setErrors] = useState({title: false, img: false})
+    const [errors, setErrors] = useState({title: false, img: false, ingredients: false,})
 
     const validateForm = () => {
-        const {title, img} = newRecipe;
-        let titleValid = false;
-        let imgValid = false;
-        let correct = false;
-        if (title.length >= 3 && title.length < 30) {
-            titleValid = true;
+        const {title, img, ingredients} = newRecipe;
+        let titleValid = true; // true = OK (no error message)
+        let imgValid = true;
+        const ingredientsArrayErrors = [];
+        let correct = true;
+            if (title.length < 3 || title.length > 30) {
+                titleValid = false;
+            }
+            if (!img) {
+                imgValid = false;
+            }
+            if (ingredients.length) {
+                ingredients.forEach((ingredient, index) => {
+                    const ingredientErrors = {};
+                    if (ingredient.name.length < 3 || ingredient.name.length > 30 ){
+                        ingredientErrors.name = true;
+                    }
+                    if (ingredient.quantity <= 0) {
+                        ingredientErrors.quantity = true;
+                    }
+                    if (!ingredient.unit) {
+                        ingredientErrors.unit = true;
+                    }
+                    if (ingredientErrors.name || ingredientErrors.quantity || ingredientErrors.unit) {
+                        ingredientsArrayErrors[index] = ingredientErrors;
+                    }
+                })
+            }
+            correct = (titleValid && imgValid && !ingredientsArrayErrors.length);
+            return ({
+                correct,
+                titleValid,
+                imgValid,
+                ingredientsArrayErrors,
+            })
         }
-        if (img) {
-            imgValid = true;
-        }
-        if (titleValid && imgValid) {
-            correct = true;
-        }
-        return ({
-            correct,
-            titleValid,
-            imgValid,
-        })
-    }
-
 
     const fetchRecipes = async () => {
         setIsLoading(true);
@@ -60,6 +77,7 @@ export const AppProvider = ({children}) => {
             }
         } else {
             try {
+                console.log(recipe.id)
                 return fetch(URL + '/' + recipe.id, {
                     method: 'PUT',
                     headers: {'Content-Type': 'application/json'},
@@ -80,18 +98,17 @@ export const AppProvider = ({children}) => {
     };
 
     const handleSubmit = (e) => {
-        console.log(e.target)
         e.preventDefault();
         const validation = validateForm();
-        console.log('validation.correct ' + validation.correct)
         if (validation.correct) {
             saveRecipe(newRecipe);
             setNewRecipe({title: '', img: '', ingredients: [], notes: ''})
             showAlert(true, 'success', `item successfully ${isEditingActive ? 'updated' : 'added'}`);
-            setErrors({title: false, img: false})
+            setErrors({title: false, img: false, ingredients: false})
+            setIsEditingActive(false);
         } else {
             showAlert(true, 'danger', 'Check the form again');
-            setErrors({title: !validation.titleValid, img: !validation.imgValid})
+            setErrors({title: !validation.titleValid, img: !validation.imgValid, ingredients: Boolean(validation.ingredientsArrayErrors.length)})
         }
     }
 
@@ -105,6 +122,7 @@ export const AppProvider = ({children}) => {
     const deactivateEditing = () => {
         setIsEditingActive(false);
         setEditID(null);
+        setNewRecipe({title: '', img: '', ingredients: [], notes: ''})
     }
 
     const handleAddNewIngredient = (e) => {

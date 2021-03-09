@@ -2,13 +2,12 @@ import {useGlobalContext} from "../AppContext";
 import IngredientInput from "../components/IngredientInput";
 import {Link} from "react-router-dom";
 import Alert from "../components/Alert";
+import {messages} from "../data/errorMessages";
+import {Route, Redirect} from "react-router";
 
 const EditPage = () => {
-    const {handleSubmit, deactivateEditing, handleAddNewIngredient, handleChange, newRecipe, showAlert, alert, errors} = useGlobalContext();
-    const messages = {
-        title_incorrect: 'Empty dish name value!',
-        img_incorrect: 'Check the URl of the image!',
-    }
+    const {handleSubmit, deactivateEditing, handleAddNewIngredient, handleChange, newRecipe, showAlert, alert, errors, isEditingActive} = useGlobalContext();
+
     return (
         <>
             <div className='form-container'>
@@ -51,11 +50,13 @@ const EditPage = () => {
                                 <IngredientInput {...ingredient} id={index} key={index}/>
                             )
                         })}
+                        {errors.ingredients && <p className='error-input'>{messages.ingredients_incorrect}</p>}
                         <button className='btn-ingredient' onClick={handleAddNewIngredient}>Add Ingredient</button>
                     </div>
 
                     <Link to='/'><button className='btn' onClick={deactivateEditing}>Cancel</button></Link>
                     <button type='submit' className='btn' onClick={handleSubmit}>Edit Recipe</button>
+                    <Route render={() => isEditingActive ? null : <Redirect to="/add"/>}/>
                 </form>
                 {alert.show && <Alert {...alert} removeAlert={showAlert} newRecipe={newRecipe} />}
             </div>
