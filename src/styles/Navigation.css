@@ -40,7 +40,7 @@
 .items-container {
     width: 90vw;
     background-color: white;
-    height: 100vh;
+    /*height: 100vh;*/
     margin: 0 auto;
     border-radius: 2rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -93,7 +93,7 @@
     .items-container {
         width: 90vw;
         background-color: white;
-        height: 100vh;
+        /*height: 100vh;*/
         margin: 0 auto;
         border-radius: 2rem;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);

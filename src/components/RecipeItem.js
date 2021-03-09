@@ -1,9 +1,11 @@
 import {useGlobalContext} from "../AppContext";
 import '../styles/RecipeItem.css'
 import {RiEdit2Fill} from "react-icons/ri"
+import {BiNote} from "react-icons/bi"
+
 import {Link} from "react-router-dom";
 
-const RecipeItem = ({img, title, ingredients, id}) => {
+const RecipeItem = ({img, title, ingredients, notes, id}) => {
     const {activateEditing} = useGlobalContext();
     return (
         <article className='recipe-item'>
@@ -21,6 +23,7 @@ const RecipeItem = ({img, title, ingredients, id}) => {
                     })}
 
                 </ul>
+                {notes && <p className='additional-info'><i><BiNote/></i>Notes: {notes}</p>}
                 <Link to="/edit"><button className='btn' onClick={() => activateEditing(id)}>Edit <RiEdit2Fill/></button></Link>
             </div>
         </article>

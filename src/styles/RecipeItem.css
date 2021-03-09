@@ -28,8 +28,19 @@
 }
 .recipe-info h4 {
     margin-bottom: 0.5rem;
+    margin-top: 2px;
 }
 
 .ingredients-list {
     text-align: left;
+    min-height: 100px;
+}
+.additional-info {
+    margin-left: 20px;
+}
+.additional-info i {
+    color: hsl(205, 89%, 70%);
+    font-size: 20px;
+    position: relative;
+    top: 4px;
 }
