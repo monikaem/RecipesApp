@@ -85,6 +85,7 @@ export const AppProvider = ({children}) => {
                 console.log(error);
             }
         }
+        fetchRecipes();
     }
 
     useEffect(() => {
