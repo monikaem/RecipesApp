@@ -10,7 +10,7 @@ const Page = () => {
                 <Switch>
                     <Route path='/' exact={true} component={MainPage}/>
                     <Route path='/add' exact={true} component={FormPage}/>
-                    <Route pat='/edit' exact={true} component={EditPage}/>
+                    <Route path='/edit/:id' exact={true} component={EditPage}/>
                 </Switch>
             </main>
         </>

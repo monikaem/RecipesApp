@@ -5,13 +5,7 @@ import Page from "./Page";
 import {useGlobalContext} from "../AppContext";
 
 function App() {
-    const {isLoading} = useGlobalContext();
 
-    if (isLoading) {
-        return (
-            <h1 className='loading'>Loading...</h1>
-        )
-    }
   return (
       <Router basename={process.env.PUBLIC_URL}>
           <div className='App'>

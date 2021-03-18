@@ -8,3 +8,7 @@
 .recipes-list {
     margin-top: 80px;
 }
+.loading {
+    margin: 0 auto;
+    width: 30vh;
+}

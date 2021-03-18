@@ -24,7 +24,7 @@ const RecipeItem = ({img, title, ingredients, notes, id}) => {
 
                 </ul>
                 {notes && <p className='additional-info'><i><BiNote/></i>Notes: {notes}</p>}
-                <Link to="/edit"><button className='btn' onClick={() => activateEditing(id)}>Edit <RiEdit2Fill/></button></Link>
+                <Link to={`/edit/${id}`}><button className='btn' onClick={() => activateEditing(id)}>Edit <RiEdit2Fill/></button></Link>
             </div>
         </article>
     )
