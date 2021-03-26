@@ -20,4 +20,8 @@ const Navigation = () => {
     )
 }
 
+// nie swieci nam sie w nawigacji aktywny link, a jak poczytamy w dokumentacji NavLinka aktywnemu dodaje sie domyslnie klasa active
+// wystarczy ostylowac taka klase i juz sie zaswieci (styl ponizej jest zupelnie przypadkowy):
+// .active .btn { background-color: aqua;}
+
 export default Navigation;
