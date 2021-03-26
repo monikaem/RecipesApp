@@ -13,6 +13,7 @@ const FormComponent = () => {
             <div className='form-container'>
                 <form>
                     <h2>Add your own recipe!</h2>
+{/* tytul mozna by zmienic na Edit... w przypadku edycji */}
                     <div className='form-control'>
                         <label htmlFor='title'>Dish Name: </label>
                         <input
