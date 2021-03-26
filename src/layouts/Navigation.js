@@ -23,5 +23,6 @@ const Navigation = () => {
 // nie swieci nam sie w nawigacji aktywny link, a jak poczytamy w dokumentacji NavLinka aktywnemu dodaje sie domyslnie klasa active
 // wystarczy ostylowac taka klase i juz sie zaswieci (styl ponizej jest zupelnie przypadkowy):
 // .active .btn { background-color: aqua;}
+// a zeby sie za duzo nie swiecilo, to uzywamy exact: https://reactrouter.com/web/api/NavLink
 
 export default Navigation;

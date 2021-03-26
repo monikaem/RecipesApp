@@ -12,6 +12,8 @@
     border-radius: 0.25rem;
     margin: 30px 10px;
 }
+/* czasem mamy a czasem nie entery pomiedzy regulami, lepiej byc konsekwentnym */
+
 .btn:hover {
     color: #fff;
     background: hsl(205, 89%, 70%);
