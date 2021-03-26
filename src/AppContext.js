@@ -147,6 +147,9 @@ export const AppProvider = ({children}) => {
 
     return (
         <AppContext.Provider value={{
+            // w Providerze dostarczamy jakis stan, ktory moze byc potrzebny w komponentach - dzieciach
+            // mam wrazenie, ze tu mamy polaczony stan strony z przepisami i formularza - jesli byloby wiecej ekranow, ten plik by spotwornial
+            // elementy stanu i funkcje z tego pliku nalezaloby porozdzielac i przeniesc tam, gdzie sa potrzebne
             isLoading,
             recipes,
             handleSubmit,

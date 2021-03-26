@@ -60,6 +60,7 @@ const FormComponent = () => {
 
                     <Link to='/'><button className='btn' onClick={deactivateEditing}>Cancel</button></Link>
                     <button type='submit' className='btn' onClick={handleSubmit}>Save Recipe</button>
+                    {/* a po submicie fajnie byloby wrocic na glowna strone */}
                 </form>
                 {alert.show && <Alert {...alert} removeAlert={showAlert} newRecipe={newRecipe} />}
             </div>
