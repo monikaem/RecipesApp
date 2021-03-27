@@ -60,6 +60,8 @@ export const AppProvider = ({children}) => {
         } catch (error) {
             setIsLoading(false);
             console.log(error);
+// zamiast cichaczem logowac blad lepiej wrzucic go do stanu stronki z przepisami
+// jesli kazda stronka potencjalnie mogłaby wyswietlic blad, fajnie jest uwzglednic to w jakims wspoldzielonym layoucie
         }
     }
 
