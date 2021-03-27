@@ -5,6 +5,8 @@ import App from './layouts/App';
 import reportWebVitals from './reportWebVitals';
 import {AppProvider} from './AppContext'
 
+// warto pilnowac wciec - wtedy kod jest latwiejszy w odbiorze (App ponizej jest zle wciety) 
+
 ReactDOM.render(
   <React.StrictMode>
       <AppProvider>

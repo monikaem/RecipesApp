@@ -11,6 +11,7 @@ const Page = () => {
                     <Route path='/' exact={true} component={MainPage}/>
                     <Route path='/add' exact={true} component={FormPage}/>
                     <Route pat='/edit' exact={true} component={EditPage}/>
+{/* wystarczylyby tylko 2 strony: / - na przepisy i /recipe - na formularz przepisu, poniewaz zarowno FormPage jak i EditPage renderuja FormComponent w identyczny sposob */}
                 </Switch>
             </main>
         </>

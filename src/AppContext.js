@@ -60,6 +60,9 @@ export const AppProvider = ({children}) => {
         } catch (error) {
             setIsLoading(false);
             console.log(error);
+// zamiast cichaczem logowac blad lepiej wrzucic go do stanu stronki z przepisami
+// jesli kazda stronka potencjalnie mogłaby wyswietlic blad, fajnie jest uwzglednic to w jakims wspoldzielonym layoucie
+// przy wychodzeniu lub wchodzeniu na strone taki blad nalezy czyscic
         }
     }
 
@@ -147,6 +150,9 @@ export const AppProvider = ({children}) => {
 
     return (
         <AppContext.Provider value={{
+            // w Providerze dostarczamy jakis stan, ktory moze byc potrzebny w komponentach - dzieciach
+            // mam wrazenie, ze tu mamy polaczony stan strony z przepisami i formularza - jesli byloby wiecej ekranow, ten plik by spotwornial
+            // elementy stanu i funkcje z tego pliku nalezaloby porozdzielac i przeniesc tam, gdzie sa potrzebne
             isLoading,
             recipes,
             handleSubmit,
