@@ -62,6 +62,7 @@ export const AppProvider = ({children}) => {
             console.log(error);
 // zamiast cichaczem logowac blad lepiej wrzucic go do stanu stronki z przepisami
 // jesli kazda stronka potencjalnie mogłaby wyswietlic blad, fajnie jest uwzglednic to w jakims wspoldzielonym layoucie
+// przy wychodzeniu lub wchodzeniu na strone taki blad nalezy czyscic
         }
     }
 
