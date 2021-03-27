@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import Alert from "./Alert";
 import {useGlobalContext} from "../AppContext";
 
-
+// moze slowko Component nie jest potrzebne w tej nazwie?
 const FormComponent = () => {
     const {handleSubmit, deactivateEditing, newRecipe, handleAddNewIngredient, handleChange, alert, showAlert, errors} = useGlobalContext();
 
@@ -26,6 +26,8 @@ const FormComponent = () => {
                         />
                     </div>
                     {errors.title && <p className='error-input'>{errorMessages.title_incorrect}</p>}
+{/* moze warto byłoby zdefiniować na bazie powyzszych 12 linijek komponent: form input z errorem? */}
+{/* w ramach cwiczenia mozna zrobic walidacje formularza na zywo */}
                     <div className='form-control'>
                         <label htmlFor='img'>Image URL: </label>
                         <input
@@ -61,7 +63,7 @@ const FormComponent = () => {
 
                     <Link to='/'><button className='btn' onClick={deactivateEditing}>Cancel</button></Link>
                     <button type='submit' className='btn' onClick={handleSubmit}>Save Recipe</button>
-                    {/* a po submicie fajnie byloby wrocic na glowna strone */}
+{/* a po udanym submicie fajnie byloby wrocic na glowna strone, po nieudanym - zostajemy na stronie z formularzem */}
                 </form>
                 {alert.show && <Alert {...alert} removeAlert={showAlert} newRecipe={newRecipe} />}
             </div>
